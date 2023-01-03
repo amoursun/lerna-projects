@@ -1,0 +1,2 @@
+#!/bin/sh
+source $(dirname "$0")/../.git/hooks/commit-msg

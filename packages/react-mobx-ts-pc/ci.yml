@@ -1,0 +1,56 @@
+Global:
+  tool: build_submitter
+
+Default:
+  profile: [test]
+
+Profiles:
+  - profile:
+    name: test
+    env: DECK_CENTOS7U5_K3
+    command: >-
+      AGILE_TRIGGER_USER=$AGILE_TRIGGER_USER
+      AGILE_COMPILE_BRANCH=$AGILE_COMPILE_BRANCH
+      AGILE_REVISION=$AGILE_REVISION
+      sh ci/test.sh
+    release: false
+
+  - profile:
+    name: dev
+    env: DECK_CENTOS7U5_K3
+    command: >-
+      WEBPACK_ENV=dev
+      sh ci/build-for-deploy.sh
+    release: true
+
+  - profile:
+    name: sit
+    env: DECK_CENTOS7U5_K3
+    command: >-
+      WEBPACK_ENV=sit
+      sh ci/build-for-deploy.sh
+    release: true
+
+  - profile:
+    name: uat
+    env: DECK_CENTOS7U5_K3
+    command: >-
+      WEBPACK_ENV=uat
+      sh ci/build-for-deploy.sh
+    release: true
+
+  - profile:
+    name: pot
+    env: DECK_CENTOS7U5_K3
+    command: >-
+      WEBPACK_ENV=pot
+      sh ci/build-for-deploy.sh
+    release: true
+
+  - profile:
+    name: prd
+    env: DECK_CENTOS7U5_K3
+    command: >-
+      WEBPACK_ENV=prd
+      sh ci/build-for-deploy.sh
+    release: true

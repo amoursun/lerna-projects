@@ -1,0 +1,49 @@
+{
+  "name": "masses",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "description": "masses-cli",
+  "main": "index.js",
+  "scripts": {
+    "setup": "node ./scripts/setup",
+    "clean": "npm run lerna:clean",
+    "bootstrap": "npm run lerna:bootstrap",
+    "build": "npm run lerna:bootstrap && npm run lerna:build",
+    "create-seed": "node ./scripts/create-seed",
+    "lerna:clean": "npx lerna clean --yes",
+    "lerna:build": "node ./scripts/build",
+    "lerna:bootstrap": "npx lerna bootstrap --hoist",
+    "lerna:version": "node ./scripts/version",
+    "lerna:publish": "node ./scripts/publish",
+    "version": "echo 'npm version' by lerna:vesion",
+    "publish": "echo 'npm publish' by lerna:publish",
+    "postinstall": "npm run lerna:bootstrap"
+  },
+  "author": "amoursun",
+  "license": "ISC",
+  "engines": {
+    "node": ">=10.15.1"
+  },
+  "devDependencies": {
+    "axios": "^1.2.0",
+    "chalk": "^5.1.2",
+    "commander": "^9.4.1",
+    "dayjs": "^1.11.6",
+    "download-git-repo": "^3.0.2",
+    "figlet": "^1.5.2",
+    "find-up": "^6.3.0",
+    "fs-extra": "^10.1.0",
+    "glob": "^8.0.3",
+    "handlebars": "^4.7.7",
+    "inquirer": "^9.1.4",
+    "lerna": "^5.5.1",
+    "lodash": "^4.17.21",
+    "ora": "^6.1.2",
+    "parse-git-config": "^3.0.0",
+    "prompts": "^2.4.2",
+    "shelljs": "^0.8.5"
+  }
+}

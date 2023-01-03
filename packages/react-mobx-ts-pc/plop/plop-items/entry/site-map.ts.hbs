@@ -1,0 +1,13 @@
+import {t} from '../../i18n';
+
+export const ENTRY_{{constantCase entryName}} = '{{entryName}}';
+
+/* plop.append:SITE_MAP_NODE_EXPORT */
+
+export const SITE_MAP_{{constantCase entryName}} = {
+    entry: ENTRY_{{constantCase entryName}},
+    label: () => t('common.module_{{snakeCase entryName}}'),
+    children: [
+        /* plop.append:PAGE_SITE_MAP_CHILD */
+    ],
+};

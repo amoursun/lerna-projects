@@ -1,0 +1,22 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# try
+{
+    npx lint-staged && npx befe-eslint-config extract
+# catch
+} || {
+    exitCode=$?
+    if [ $exitCode -eq 127 ]
+    then
+        echo "\n在 git app 跑的吧？（比如 SourceTree）\n"
+        echo "\n先跑一下这行\n"
+        echo "echo \"export PATH=\\\"\$(dirname \$(which node)):\\\$PATH\\\"\" > ~/.huskyrc"
+        echo "\n"
+        echo "了解更多："
+        echo "- https://typicode.github.io/husky/#/?id=command-not-found"
+        echo "- https://github.com/typicode/husky/issues/390#issuecomment-762213421"
+        echo "\n"
+    fi
+    exit $exitCode
+}

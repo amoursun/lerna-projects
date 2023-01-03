@@ -1,0 +1,10 @@
+import {start} from '../../common';
+import {BasicLayout} from '../../layouts/basic';
+
+import {routes} from './routes';
+import {dict} from './locale-dict';
+import './style.scss';
+
+const App = () => <BasicLayout routes={routes} />;
+
+void start(App, dict);
